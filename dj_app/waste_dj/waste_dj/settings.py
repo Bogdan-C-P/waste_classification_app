@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import django.core.mail.backends.base
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -26,6 +28,10 @@ SECRET_KEY = 'django-insecure-^9^q$kfn+$cz0hzs5m*rsx$sm_=trimslb8u8n)&yoq!vsk34+
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+if DEBUG:
+    EMAIL_bACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 
 # Application definition
