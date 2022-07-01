@@ -1,15 +1,50 @@
 {% extends 'base.html'%}
 
 {%block content%}
+<style type="text/css">
 
-<div style = 'border: 2px solid #000;'>
-    <h1> here is where you put stuff that should be in the body of your website</h1>
+	@media (max-width: 768px) {
+		.right-column{
+			margin-left: 0px;
+		}
+	}
 
-    {{some_string}}
+	@media (min-width: 768px) {
+		.right-column{
+			margin-left: 20px;
+		}
+	}
+
+	.blog-post-container{
+		margin-bottom: 20px;
+		width: 100%;
+	}
+	.create-post-bar{
+		background-color: #fff;
+		margin-bottom:20px;
+	}
+
+	.left-column{
+		padding:0px;
+	}
+
+	.right-column{
+		padding:0px;
+	}
+	.lead{
+		font-size: 17px;
+	}
+</style>
+
+<div class="container">
+	<div class="row">
+<h3>Registerd users</h3>
+
     {%for account in accounts%}
      <p>{{account}}</p>
     {%endfor%}
 
+	</div>
 </div>
 
 
