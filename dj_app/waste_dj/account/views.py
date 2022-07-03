@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login,authenticate,logout
 
 from .forms import RegistrationForm,AccountAuthenticationForm,AccountUpdateForm
+from blog.models import BlogPost
+
 # Create your views here.
 
 def registration_view(request):
@@ -74,4 +76,9 @@ def account_view(request):
             }
         )
     context['account_form'] = form
+    blog_posts = BlogPost.objects.filter(author=request.user)
+    context['blog_posts'] = blog_posts
     return render(request,'account/account.html',context)
+
+def must_authenticate_view(request):
+	return render(request, 'account/must_authenticate.html', {})
